@@ -14,7 +14,7 @@ type databaseConfig struct{
 	User string `envconfig:"DB_USER" default:"user"`
 	Pass string `envconfig:"DB_PASSWORD" default:"pass"`
 	IP string   `envconfig:"DB_IP" default:"localhost"`
-	Port string `envconfig:"DB_PORT" default:"8888"`
+	Port string `envconfig:"DB_PORT" default:"3306"`
 	Name string `envconfig:"DB_NAME" default:"app"`
 }
 
