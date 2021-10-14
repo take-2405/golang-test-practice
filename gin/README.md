@@ -83,5 +83,5 @@ $ SET MYSQL_DATABASE=miraiketai2020_app1
 DBを起動  
 docker-compose up -d  
 
-API起動
+API起動  
 go run  main.go
