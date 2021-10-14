@@ -122,12 +122,14 @@ go test -v -run Add/mal
 #### ginディレクトリのプログラム動作方法
 
 DBの起動(buildフォルダ内で)
-
+```cassandraql
 docker-compose up -d
+```
 
 API起動(ginファルダ内で)
-
+```cassandraql
 go run main.go
+```
 
 ### 主な参考サイト
 [goにおけるテスト](https://future-architect.github.io/articles/20200601/#%E3%83%86%E3%82%B9%E3%83%88%E3%81%8C%E3%81%97%E3%81%9F%E3%81%84)
