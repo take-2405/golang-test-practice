@@ -79,5 +79,9 @@ $ SET MYSQL_HOST=192.168.99.100
 $ SET MYSQL_PORT=3306
 $ SET MYSQL_DATABASE=miraiketai2020_app1
 ```
->docker-compose up -d   
+
+DBを起動  
+docker-compose up -d  
+
+API起動
 go run  main.go
