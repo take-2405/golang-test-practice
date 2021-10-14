@@ -54,12 +54,7 @@
 ## /query/tag/articles  
 #### Request   
 > - tag : string  
-###### Body
-```cassandraql
-{
-    "tag": "1_sampleTag1" 
-}
-```
+
 ---
 #### Response 
 > - ArticleID : string  
