@@ -29,20 +29,3 @@ func TestServer(t *testing.T) {
 	// ...
 	assert.Equal(t, w.Body.String(), "{\"articles\":[{\"id\":\"1\",\"title\":\"Title_sample1\",\"imagePath\":\"ImageURL\",\"tags\":[\"1_sampleTag1\",\"1_sampleTag2\",\"1_sampleTag3\",\"1_sampleTag4\"]}]}")
 }
-
-//{
-//"articles": [
-//{
-//"id": "1",
-//"title": "Title_sample1",
-//"imagePath": "ImageURL",
-//"tags": [
-//"1_sampleTag1",
-//"1_sampleTag2",
-//"1_sampleTag3",
-//"1_sampleTag4"
-//]
-//}
-//]
-//}
-
