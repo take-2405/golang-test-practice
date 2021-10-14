@@ -2,11 +2,11 @@
 -- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 -- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 SET CHARSET UTF8;
-DROP SCHEMA IF EXISTS `miraiketai2020_app1`;
-CREATE SCHEMA IF NOT EXISTS `miraiketai2020_app1` DEFAULT CHARACTER SET utf8;
-USE `miraiketai2020_app1`;
+DROP SCHEMA IF EXISTS `app`;
+CREATE SCHEMA IF NOT EXISTS `app` DEFAULT CHARACTER SET utf8;
+USE `app`;
 
----- drop ----
+-- drop ----
 DROP TABLE IF EXISTS `users`;
 DROP TABLE IF EXISTS `users_genres`;
 DROP TABLE IF EXISTS `users_info`;
@@ -16,8 +16,8 @@ DROP TABLE IF EXISTS `articles_tag`;
 DROP TABLE IF EXISTS `articles_comments`;
 DROP TABLE IF EXISTS `articles_nice_status`;
 
----- create ----
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`users` (
+-- create ----
+CREATE TABLE IF NOT EXISTS `app`.`users` (
 `id` VARCHAR(32) NOT NULL COMMENT 'ユーザID',
 `name` VARCHAR(32) NOT NULL COMMENT 'ユーザ名',
 `image` VARCHAR(128) NOT NULL COMMENT 'プロフィール画像',
@@ -31,7 +31,7 @@ INDEX `idx_auth_token` (`id` ASC)
 ENGINE = InnoDB
 COMMENT = 'ユーザプロフィール';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`users_genres` (
+CREATE TABLE IF NOT EXISTS `app`.`users_genres` (
 `id` VARCHAR(64) NOT NULL COMMENT 'ユーザID',
 `genre_1` VARCHAR(64) NOT NULL COMMENT '1つ目のジャンル',
 `genre_2` VARCHAR(64) NOT NULL COMMENT '2つ目のジャンル',
@@ -42,7 +42,7 @@ PRIMARY KEY (`id`)
 ENGINE = InnoDB
 COMMENT = 'ユーザ選択ジャンル';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`users_info` (
+CREATE TABLE IF NOT EXISTS `app`.`users_info` (
 `id` VARCHAR(64) NOT NULL COMMENT 'ユーザID',
 `password` VARCHAR(64) NOT NULL COMMENT 'パスワード',
 PRIMARY KEY (`id`)
@@ -50,18 +50,18 @@ PRIMARY KEY (`id`)
 ENGINE = InnoDB
 COMMENT = 'ユーザ情報';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`users_list` (
+CREATE TABLE IF NOT EXISTS `app`.`users_list` (
 `list_id` VARCHAR(64) NOT NULL COMMENT '識別ID',
 `user_id` VARCHAR(64) NOT NULL COMMENT 'ユーザID',
 `article_id` VARCHAR(64) NOT NULL COMMENT '記事識別ID',
 PRIMARY KEY (`list_id`),
 FOREIGN KEY (`user_id`)
-    REFERENCES `miraiketai2020_app1`.`users` (`id`)
+    REFERENCES `app`.`users` (`id`)
 )
 ENGINE = InnoDB
 COMMENT = 'リスト';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_contents` (
+CREATE TABLE IF NOT EXISTS `app`.`articles_contents` (
 `article_id` VARCHAR(64) NOT NULL COMMENT '記事識別ID',
 `image_path` VARCHAR(128) NOT NULL COMMENT '画像のパス',
 `title` VARCHAR(32) NOT NULL COMMENT '記事のタイトル',
@@ -75,7 +75,7 @@ PRIMARY KEY (`article_id`)
 ENGINE = InnoDB
 COMMENT = '記事の内容';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_tag` (
+CREATE TABLE IF NOT EXISTS `app`.`articles_tag` (
 `tag_id` VARCHAR(64) NOT NULL COMMENT 'タグID',
 `article_id` VARCHAR(64) NOT NULL COMMENT '記事識別ID',
 `article_tag` VARCHAR(32) NOT NULL COMMENT '記事のタグ',
@@ -84,7 +84,7 @@ PRIMARY KEY (`tag_id`)
 ENGINE = InnoDB
 COMMENT = '記事のタグ';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_comments` (
+CREATE TABLE IF NOT EXISTS `app`.`articles_comments` (
 `article_id` VARCHAR(64) NOT NULL COMMENT '記事識別ID',
 `comments_id` VARCHAR(64) NOT NULL COMMENT 'コメントのID',
 `comments_contents` VARCHAR(64) NOT NULL COMMENT 'コメントの内容',
@@ -95,18 +95,18 @@ PRIMARY KEY (`comments_id`)
 ENGINE = InnoDB
 COMMENT = '記事へのコメント';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_nice_status` (
+CREATE TABLE IF NOT EXISTS `app`.`articles_nice_status` (
 `nice_id` VARCHAR(64) NOT NULL COMMENT 'NiceID',
 `article_id` VARCHAR(64) NOT NULL COMMENT '記事識別ID',
 `user_id` VARCHAR(64) NOT NULL COMMENT 'ユーザID',
 PRIMARY KEY (`nice_id`),
 FOREIGN KEY (`user_id`)
-    REFERENCES `miraiketai2020_app1`.`users` (`id`)
+    REFERENCES `app`.`users` (`id`)
 )
 ENGINE = InnoDB
 COMMENT = '記事にいいねした人';
 
-CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_requests` (
+CREATE TABLE IF NOT EXISTS `app`.`articles_requests` (
 `request_id` VARCHAR(64) NOT NULL COMMENT 'リクエスト識別ID',
 `user_id` VARCHAR(64) NOT NULL COMMENT 'ユーザID',
 `genre` VARCHAR(64) COMMENT  'ジャンル',
@@ -116,12 +116,12 @@ CREATE TABLE IF NOT EXISTS `miraiketai2020_app1`.`articles_requests` (
 `month` INT COMMENT '年代(月)',
 PRIMARY KEY (`request_id`),
 FOREIGN KEY (`user_id`)
-    REFERENCES `miraiketai2020_app1`.`users` (`id`)
+    REFERENCES `app`.`users` (`id`)
 )
 ENGINE = InnoDB
 COMMENT = 'リクエスト';
 
----- insert ----
+-- insert ----
 INSERT INTO `articles_contents` VALUES ('1', 'ImageURL', 'Title_sample1','五稜郭で飲んだ帰りsample1sample1sample1sample1sample1sample1sample1sample1','ドラマ',46,2020,6);
 INSERT INTO `articles_contents` VALUES ('6', 'ImageURL', 'Title_sample2','五稜郭で飲んだ帰りsample1sample1sample1sample1sample1sample1sample1sample1','ドラマ',4,2019,12);
 INSERT INTO `articles_contents` VALUES ('7', 'ImageURL', 'Title_sample3','五稜郭で飲んだ帰りsample1sample1sample1sample1sample1sample1sample1sample1','ドラマ',6,2018,11);
