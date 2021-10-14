@@ -44,9 +44,9 @@ func ReadArticlesHandler()gin.HandlerFunc{
 func ReadTagArticlesHandler()gin.HandlerFunc{
 	return func(c *gin.Context) {
 		var request dto.TagRequest
-		err:=c.ShouldBindJSON(&request)
-		if err != nil {
-			log.Println("[ERROR] Faild Bind JSON　\n ",err)
+		request.Tag = c.Query("tag")
+		if request.Tag == "" {
+			log.Println("request tag is nil\n ")
 			c.JSON(http.StatusBadRequest, "Request is error")
 			view.ReturnErrorResponse(
 				c,

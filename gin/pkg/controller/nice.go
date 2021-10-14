@@ -49,15 +49,6 @@ func UpdateAddLikeHandler() gin.HandlerFunc {
 			)
 			return
 		}
-		//if nice.Nice == 0 {
-		//	log.Println(err)
-		//	view.ReturnErrorResponse(
-		//		c,
-		//		http.StatusInternalServerError,
-		//		"Internal Server Error",
-		//		"Failed to get nice",
-		//	)
-		//}
 		// // 生成した認証トークンを返却
 		c.JSON(http.StatusOK, view.ReturnNiceResopnse(nice))
 	}

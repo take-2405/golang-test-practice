@@ -11,11 +11,11 @@ import (
 const accessTokenTemplate = "%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local"
 
 type databaseConfig struct{
-	User string `envconfig:"DB_USER" default:"miraiketai2020"`
-	Pass string `envconfig:"DB_PASSWORD" default:"miraiketai2020"`
+	User string `envconfig:"DB_USER" default:"user"`
+	Pass string `envconfig:"DB_PASSWORD" default:"pass"`
 	IP string   `envconfig:"DB_IP" default:"localhost"`
-	Port string `envconfig:"DB_PORT" default:"3306"`
-	Name string `envconfig:"DB_NAME" default:"miraiketai2020_app1"`
+	Port string `envconfig:"DB_PORT" default:"8888"`
+	Name string `envconfig:"DB_NAME" default:"app"`
 }
 
 func GetServerPort() string{
