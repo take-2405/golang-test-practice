@@ -100,6 +100,7 @@ func (info *readTagArticles)Request()([]dto.Article, error){
 		row        *sql.Row
 		err         error
 	)
+	log.Println(info.Tag)
 	articleIDs, err := searchTagTargetArticleID(info.Tag);
 	if err!=nil{
 		return nil,err
