@@ -8,24 +8,22 @@ golangにおけるテストを書いてみる
 ### ディレクトリ構成
 - apiディレクトリ  
 基本的なAPIに対するテスト  
-net/httpパッケージを利用して簡単なサーバーを作成し、テストを行っている。
+net/httpパッケージを利用して簡単なサーバーを作成し、テスト
 
 - basicディレクトリ  
     - 基本的なsubTestとTableDrivenTestを使用してテスト  
     - 並列テスト  
     - テスト失敗時のアサート  
     - テストのスキップ  
-    
-を行った
 
 - flowディレクトリ  
-TestMain関数を利用した事前処理、事後処理などテストでの一連の流れを行った。
+TestMain関数を利用した事前処理、事後処理などの一連の流れをテスト
 
 - ginディレクトリ  
-普段作成しているgo+gin+docker+mysqlで作成したAPIのテストを行っている。
+普段作成しているgo+gin+docker+mysqlで作成したAPIのテスト
 
 - helperディレクトリ  
-t.Helper()関数を使ってみた
+t.Helper()関数を使ってテスト
 
 ```cassandraql
 .
