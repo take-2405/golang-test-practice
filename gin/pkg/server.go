@@ -13,11 +13,11 @@ var (
 func init() {
 	Server = gin.Default()
 	//記事の一覧情報送信
-	Server.GET("/read/articles", controller.ReadArticlesHandler())
+	Server.POST("/read/articles", controller.ReadArticlesHandler())
 	//記事の詳細情報送信
-	Server.GET("/read/article", controller.ReadArticleHandler())
+	Server.POST("/read/article", controller.ReadArticleHandler())
 	//記事のタグ検索
-	Server.GET("/read/tag/articles", controller.ReadTagArticlesHandler())
+	Server.POST("/read/tag/articles", controller.ReadTagArticlesHandler())
 	//記事のいいね数更新
-	Server.PUT("/update/add/like", controller.UpdateAddLikeHandler())
+	Server.POST("/update/add/like", controller.UpdateAddLikeHandler())
 }

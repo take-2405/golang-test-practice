@@ -57,8 +57,6 @@ t.Helper()関数を使ってテスト
 │   │       ├── init
 │   │       │   └── init.sql
 │   │       └── my.cnf
-│   ├── docs
-│   │   └── RequestAndResponse.md
 │   ├── go.mod
 │   ├── go.sum
 │   ├── main.go

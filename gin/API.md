@@ -1,6 +1,10 @@
-# Request & Response
+# API仕様  
+ginフォルダ内のAPIは、過去に作成した記事管理サービスのAPIである。  
+実装時はマイクロサービスアーキテクチャを採用したため、本APIでは、記事情報送信や記事の評価(いいね)を行う。
 
-## /read/articles
+## 各エンドポイントのリクエストとレスポンス
+### /read/articles
+- method：GET
 #### Request   
 > - genre : string
 > - month : int
@@ -40,7 +44,7 @@
         {
             "id": "14",
             "title": "東京ラブストーリー",
-            "imagePath": "https://initial-practice.s3-ap-northeast-1.amazonaws.com/second-sprintReview/14.png",
+            "imagePath": "sample",
             "tags": [
                 "ドラマ",
                 "名作",
@@ -51,7 +55,8 @@
 }
 ```
 
-## /query/tag/articles  
+### /query/tag/articles  
+- method：GET
 #### Request   
 > - tag : string  
 
@@ -80,8 +85,8 @@
 ```
 ---
 
-## /read/article 
-
+### /read/article 
+- method：GET
 #### Request   
 > - articleID : string  
 ###### Header
@@ -134,7 +139,8 @@ UserID:b1018085@fun.ac.jp
 }
 ```
 
-## /mutation/add/like
+### /mutation/add/like
+- method：POST
 #### Request   
 > - articleID : string
 ###### Header
