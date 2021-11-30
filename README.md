@@ -93,6 +93,12 @@ t.Helper()関数を使ってテスト
 go test -v
 ```
 
+- カレントディレクトリ以下のテストを実行  
+```
+go test -v ./...
+```
+
+
 - testを短縮して実行
 ```cassandraql
 go test -v -short
